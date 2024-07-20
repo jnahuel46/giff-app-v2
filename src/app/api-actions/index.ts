@@ -1,0 +1,1 @@
+export { fetchGiffs } from './gifs-actions';
