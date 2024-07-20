@@ -1,11 +1,13 @@
 export async function GET(request: Request) {
+  const giffKey = process.env.GIFF_KEY as string;
+
   try {
     const urlParsed = new URL(request.url);
 
     const params = new URLSearchParams(urlParsed.search);
 
     const categoryParam = params.get("category");
-    const url = `https://api.giphy.com/v1/gifs/search?q=${categoryParam}&limit=10&api_key=JV9VN8q94f6RZ8WRt0y5osDVRAO1pEMj`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${categoryParam}&limit=10&api_key=${giffKey}`;
     const resp = await fetch(url);
     const { data } = await resp.json();
 
